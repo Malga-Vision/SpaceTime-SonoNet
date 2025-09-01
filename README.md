@@ -82,11 +82,8 @@ Such scripts use code from the following Python packages:
 >> set by choosing between 3 configurations (16, 32, and 64).
 >> 
 
-Results of each experiment are stored in the following folder:
-
 > **<u>logs</u>** / **<u>weights4sononet2d</u>** / **<u>FetalDB</u>**:
->> SonoNet pre-trained weights:
->> - : pretrained weights of all SonoNet configurations (16, 32, and 64 initial 
+> pretrained weights of all SonoNet configurations (16, 32, and 64 initial 
 >> features) from the FetalDB dataset. Each configuration has its own folder (SonoNet-16, SonoNet-32, and SonoNet-64) 
 >> where weights are stored in "ckpt_best_loss.pth" file. Such files were obtained from those denoted as "old", which 
 >> are the ones provided in [this repository](https://github.com/rdroste/SonoNet_PyTorch) (same weights but not directly 
