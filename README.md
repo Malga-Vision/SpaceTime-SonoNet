@@ -1,4 +1,4 @@
-# Standard-Plane Classification in US Liver Image Sequences
+# SpaceTime-SonoNet: Efficient Classification of Ultra-Sound Video Sequences
 
 The goal of this project is to propose a method to automatically detect and classify standard planes (SP)
 in liver ultrasound (US) videos. The operator - commonly a nurse - should detect the most informative images 
