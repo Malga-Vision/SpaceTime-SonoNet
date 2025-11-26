@@ -5,22 +5,22 @@ in liver ultrasound (US) videos. The operator - commonly a nurse - should detect
 within each US video, in order to later provide them to physicians for diagnostic purposes. Such frames are known as 
 standard planes and are identified by the presence of specific anatomical structures within the image. 
 Given the nature of this imaging technique (being highly noisy and subject to device settings and manual skills of 
-the operator) and the resulting challenge of recognizing anatomical structures (often not clearly visible even by expert 
+the operator) and the resulting challenge of recognising anatomical structures (often not clearly visible even by expert 
 physicians), the standard plane detection task is non-trivial and strongly operator-dependent. Nonetheless, 
 one aspect that seems to aid expert users is the temporal evolution of the data within the performed motion scan 
 (combined with some prior background knowledge of human anatomy). Our aim is hence to develop a deep learning pipeline 
 for the automatic classification SP from single frames and sequences of frames within US videos.  
 
 We start by following a 2D approach with a 2D CNN architecture named SonoNet [[1]](#1), which proved to achieve 
-state-of-the-art results on US fetal standard plane detection task. As a first later approach concerning the usage of time information, 
+state-of-the-art results on US fetal standard plane detection task. As a first approach concerning the usage of time information, 
 instead, we propose to employ a 3D CNN model in order to exploit both spatial and temporal information on a short timescale. 
 Specifically, we implemented a 3D extension of the mentioned SonoNet architecture. Extending convolutions 
-to the third (temporal) domain should aid the network in solving ambiguous situations where some parts of anatomical 
-structures are not clearly visible (or partly occluded) within a single frame, though could appear in nearby frames.
+to the third (temporal) domain should aid the network in solving ambiguous situations where some parts of the anatomical 
+structures are not clearly visible (or partly occluded) within a single frame, though they could appear in nearby frames.
 Based on [[2]](#2) we also implemented SonoNet(2+1)D model. It is a 3D version of SonoNet2D, but each 2D convolution layers
 is replaced with a SpatioTemporal block, which consists of 2D convolution layer followed by a 1D convolution layer.
 In this way, we have a model which is comparable to the SonoNet2D, in terms of trainable parameters, but with a number of non-linear operations which is double with respect to the 3D model, 
-potentially leading to best results. 
+potentially leading to the best results. 
 
 
 ------
@@ -43,12 +43,12 @@ Scripts must be executed in the following order:
 > sequence for which the SSIM value is lower than the average SSIM throughout the whole video.
 
 ### **<u>models</u>**
-This folder contains main scripts for running experiments with different models. See the "usage" note at the beginning 
+This folder contains the main scripts for running experiments with different models. See the "usage" note at the beginning 
 of each of them.
 > - **_sononet2d-traintest.py_**: train and test the 2D SonoNet-16/32/64 model.
 > - **_sononet2d-traintest_3d_comparable.py_**: trains and evaluates the 2D SonoNet-16/32/64 model using the same dataset as the 3D models for direct comparison.
 > - **_sononet3d-traintest.py_**: train and test the 3D SonoNet-16/32/64 model.
-> - **_temporal_test.py_**: loads a test video and visualizes the predictions of different models for temporal comparison.
+> - **_temporal_test.py_**: loads a test video and visualises the predictions of different models for temporal comparison.
 > - **_2d_vs_3d_**: computes per-video accuracy on the test set for both 2D and 3D models, and calculates the average accuracy..
 
 Such scripts use code from the following Python packages:
