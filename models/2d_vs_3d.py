@@ -206,6 +206,8 @@ def main():
         pred_2d_list.extend(predictions_2d)
         target_2d_list.extend(targets_2d)
         del video_dataset_2d, video_loader_2d
+
+        
         ##################### 3D #############################
         video_clips = split_video_in_clips(frame_paths, args.clip_len)
 

@@ -208,6 +208,7 @@ class SpatioTemporalConv(nn.Module):
         '''
         
         ############### NO FORMULA ###############################
+        # The formula is used to reproduce the number of parameter of the 3D version of SonoNet as closely as possible
         self.spatial_conv = nn.Sequential(nn.Conv3d(in_channels, out_channels, spatial_kernel_size,
                                       stride=spatial_stride, padding=spatial_padding, bias=bias),
                                       nn.BatchNorm3d(out_channels), 
@@ -309,7 +310,7 @@ class SonoNet3D_2_1d(nn.Module):
 
             k_size = (t, h, w)
             #print("aaa ", x.size())
-            x = self.dropout(x) 
+            #x = self.dropout(x) 
             x = F.avg_pool3d(x, kernel_size=k_size).view(batch, channel)  # in=(N,C,D,H,W) & out=(N,C)
 
         return x

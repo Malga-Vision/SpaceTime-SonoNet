@@ -249,6 +249,9 @@ def main():
                 out_labels=video_dataset_3d.num_classes, train_classifier_only=False)
     net_3d.to(device)
     path_weights_3d =  args.model_dir_3d
+
+
+    
     print('\nStarting test phase...')
     [test_f1_3d, test_acc_3d], [predictions_3d, targets_3d] = test_3d(net_3d, video_loader_3d,
                                                                   checkpoint_dir=path_weights_3d,

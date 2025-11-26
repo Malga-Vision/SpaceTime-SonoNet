@@ -135,7 +135,7 @@ def main():
         print("Sampler weights: ", samples_weight)
         sampler = WeightedRandomSampler(weights = samples_weight, num_samples=len(train_dataset), replacement=True)
         train_loader = DataLoader(dataset=train_dataset, sampler = sampler, batch_size=args.batch_size, pin_memory=True, num_workers=4)
-        train_class_weights = None   #quando uso sampler non uso weighted losses
+        train_class_weights = None 
     
     if args.sampler == False:
         train_loader = DataLoader(dataset=train_dataset, shuffle=True, batch_size=args.batch_size, pin_memory=True, num_workers=1)

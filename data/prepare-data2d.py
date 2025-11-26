@@ -47,7 +47,7 @@ def ecomask(imgs: np.ndarray, margin: int = 20):
     and False in the black surrounding.
     """
     mask = imgs.mean(axis=0).astype(bool)
-    mask[:, :40] = 0   #????
+    mask[:, :40] = 0
     maskmask = np.pad(mask, margin)
 
     maskmask = (np.abs(np.diff(maskmask, append=1, axis=0)) + np.abs(np.diff(maskmask, append=1, axis=1))).astype(bool)
@@ -163,8 +163,6 @@ def populate_2d_split(split_dir: str, res_dir: str, split: str = 'test'):
     plt.savefig(os.path.join(split_dir, split + '-class-distribution.svg'))
     plt.close()
 
-#-split_dir '/data/us/liver/esaote/split'
-#-res_dir 'data/us/liver/esaote/2d-split'
 def parse_args():
     parser = argparse.ArgumentParser()
     parser.add_argument('-split_dir', type=str, help='Directory of the full dataset.')
